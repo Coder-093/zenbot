@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenBot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Chatbox container */
+        .chat-box {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 300px;
+            overflow-y: scroll;
+            background-color: #f9f9f9;
+        }
+
+        /* Input and button container */
+        .chat-input {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        input {
+            width: 75%;
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .suggestions button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>ZenBot</h1>
+    <div class="chat-box" id="chat-box">
+        <p id="welcome-message">Welcome to ZenBot! You can type a message or click one of the suggestions below to get started</p>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Type your message..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <div class="suggestions">
+        <button onclick="sendMessage('play rain')">Play Rain</button>
+        <button onclick="sendMessage('play forest')">Play Forest</button>
+        <button onclick="sendMessage('take a break')">Take a Break</button>
+        <button onclick="sendMessage('motivate me')">Motivate Me</button>
+    </div>
+
+    <script>
+        // Function to handle sending messages
+        function sendMessage(message = null) {
+            const userInput = message || document.getElementById("user-input").value;
+            const chatBox = document.getElementById("chat-box");
+
+            // Add the user's message to the chatbox
+            const userMessage = document.createElement("p");
+            userMessage.textContent = "You: " + userInput;
+            chatBox.appendChild(userMessage);
+
+            // Fetch a response from the backend
+            fetch("/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: userInput })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Add the bot's response to the chatbox
+                const botMessage = document.createElement("p");
+                botMessage.textContent = "ZenBot: " + data.response;
+                chatBox.appendChild(botMessage);
+
+                // Scroll to the bottom of the chatbox
+                chatBox.scrollTop = chatBox.scrollHeight;
+            });
+
+            // Clear the input field
+            if (!message) {
+                document.getElementById("user-input").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
