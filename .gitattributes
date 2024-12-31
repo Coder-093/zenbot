@@ -1,0 +1,4 @@
+# Exclude HTML, CSS, and JS from language stats to focus on Python code
+*.html linguist-detectable=false
+*.css linguist-detectable=false
+*.js linguist-detectable=false
