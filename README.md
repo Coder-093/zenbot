@@ -2,7 +2,7 @@
 
 ZenBot is a simple chatbot application built using Flask and Python. It offers a relaxing and motivational experience by playing sounds, providing break suggestions, and sharing motivational quotes.
 
----
+
 
 ## Features
 
@@ -10,7 +10,7 @@ ZenBot is a simple chatbot application built using Flask and Python. It offers a
 - **Motivational Quotes**: Get inspired with random motivational quotes.
 - **Break Suggestions**: Suggestions for short breaks to help you relax.
 
----
+
 
 ## Getting Started
 
@@ -60,7 +60,7 @@ Ensure you have the following installed:
    http://127.0.0.1:5000/
    ```
 
----
+
 
 ## How to Use
 
@@ -71,7 +71,7 @@ Ensure you have the following installed:
    - **Motivate Me**: `motivate me`
 3. The chatbot responds with actions or messages based on your input.
 
----
+
 
 ## Project Structure
 
@@ -89,7 +89,7 @@ zenbot/
 └── README.md           # Project documentation
 ```
 
----
+
 
 ## Tests
 
@@ -103,7 +103,7 @@ Run the test script:
 python tests/test_play_sound.py
 ```
 
----
+
 
 ## Future Improvements
 
@@ -112,13 +112,13 @@ python tests/test_play_sound.py
 - Improve the frontend with modern frameworks like React or Vue.
 - Deploy the chatbot to a live server using Heroku or Render.
 
----
+
 
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
----
+
 
 ## Acknowledgments
 
