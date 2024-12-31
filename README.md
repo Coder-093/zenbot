@@ -52,7 +52,7 @@ Ensure you have the following installed:
 5. Run the application:
 
    ```bash
-   python app.py
+   python zenbot.py
    ```
 
 6. Open your browser and navigate to:
@@ -77,7 +77,7 @@ Ensure you have the following installed:
 
 ```
 zenbot/
-├── app.py              # Main Flask application
+├── zenbot.py              # Main Flask application
 ├── sounds/             # Directory for sound files
 │   ├── rain.wav
 │   ├── forest.wav
